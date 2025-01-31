@@ -24,11 +24,8 @@ public class QuestionController {
     private final OpenAIService openAIService;
 
     @PostMapping(value = "/vision", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<String> upload(
-            @Validated @RequestParam("file") MultipartFile file,
-            @RequestParam("name") String name
-    ) throws IOException {
-
+    public ResponseEntity<String> upload(@Validated @RequestParam("file") MultipartFile file,
+                                         @RequestParam("name") String name) throws IOException {
         return ResponseEntity.ok(openAIService.getDescription(file));
     }
 

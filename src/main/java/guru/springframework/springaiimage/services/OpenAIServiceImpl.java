@@ -38,7 +38,7 @@ public class OpenAIServiceImpl implements OpenAIService {
                 .build();
 
         var userMessage = new UserMessage("Explain what do you see in this picture?",
-                List.of(new Media(MimeTypeUtils.IMAGE_JPEG, file.getResource())));
+                List.of(new Media(MimeTypeUtils.IMAGE_PNG, file.getResource())));
 
         ChatResponse response = chatModel.call(new Prompt(List.of(userMessage), options));
 
